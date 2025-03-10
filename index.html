@@ -34,13 +34,62 @@
             border: none;
             border-radius: 10px;
         }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <div class="container" role="main">
         <h2>Vault LYX Staking</h2>
         <p>Gérez vos LYX et participez au staking sécurisé via Universal Page.</p>
+        <button id="connectWallet">Se connecter</button>
+        <p id="walletStatus">Aucun wallet connecté</p>
         <iframe src="https://universal.page/vault" allowfullscreen sandbox="allow-scripts allow-same-origin" title="Vault LYX Staking"></iframe>
     </div>
+
+    <script>
+        let selectedWallet = null;
+
+        // Vérifier la disponibilité de EIP-6963
+        window.addEventListener("eip6963:announceProvider", (event) => {
+            const provider = event.detail.provider;
+            if (!selectedWallet) {
+                selectedWallet = provider;
+                console.log("Wallet détecté:", provider.info.name);
+            }
+        });
+
+        // Envoyer un événement pour demander les wallets disponibles
+        window.dispatchEvent(new Event("eip6963:requestProvider"));
+
+        // Bouton de connexion
+        document.getElementById("connectWallet").addEventListener("click", async () => {
+            if (!selectedWallet) {
+                alert("Aucun wallet compatible détecté.");
+                return;
+            }
+
+            try {
+                const accounts = await selectedWallet.request({ method: "eth_requestAccounts" });
+                document.getElementById("walletStatus").textContent = "Connecté: " + accounts[0];
+                console.log("Compte connecté:", accounts[0]);
+            } catch (error) {
+                console.error("Erreur de connexion:", error);
+                alert("Erreur lors de la connexion au wallet.");
+            }
+        });
+    </script>
 </body>
 </html>
