@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="Gérez vos LYX et participez au staking sécurisé via Universal Page.">
     <title>Vault Widget</title>
     <style>
@@ -19,19 +19,31 @@
             padding: 20px;
             border-radius: 10px;
             display: inline-block;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
             width: 90%;
             max-width: 800px;
             transition: box-shadow 0.3s ease;
         }
         .container:hover {
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
         }
         iframe {
             width: 100%;
-            height: 500px;
+            min-height: 300px;
+            height: 60vh; /* Augmenté pour un meilleur affichage sur mobile */
             border: none;
             border-radius: 10px;
+        }
+
+        /* Ajustements spécifiques pour les petits écrans */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            iframe {
+                height: 70vh; /* Prend plus de place sur les mobiles */
+            }
         }
     </style>
 </head>
@@ -39,7 +51,7 @@
     <div class="container" role="main">
         <h2>Vault LYX Staking</h2>
         <p>Gérez vos LYX et participez au staking sécurisé via Universal Page.</p>
-        <iframe src="https://universal.page/vault" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
+        <iframe src="https://universal.page/vault" allowfullscreen sandbox="allow-scripts allow-same-origin" title="Vault LYX Staking"></iframe>
     </div>
 </body>
 </html>
