@@ -23,7 +23,6 @@
             width: 90%;
             max-width: 800px;
             transition: box-shadow 0.3s ease;
-            position: relative;
         }
         .container:hover {
             box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
@@ -34,16 +33,6 @@
             border: none;
             border-radius: 10px;
         }
-        .connect-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            border-radius: 50%;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -51,31 +40,6 @@
         <h2>Vault LYX Staking</h2>
         <p>Gérez vos LYX et participez au staking sécurisé via Universal Page.</p>
         <iframe src="https://universal.page/vault" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="connect-button" id="connectButton" title="Connecter à Universal Profile"></div>
     </div>
-
-    <script>
-        document.getElementById('connectButton').addEventListener('click', function() {
-            // Vérifiez si l'utilisateur est déjà connecté
-            if (isUserLoggedIn()) {
-                // Effectuez l'action de connexion à Universal Profile
-                connectToUniversalProfile();
-            } else {
-                alert("Veuillez vous connecter d'abord.");
-            }
-        });
-
-        function isUserLoggedIn() {
-            // Implémentez votre logique pour vérifier si l'utilisateur est connecté
-            // Par exemple, vérifiez un cookie ou un token de session
-            return true; // Remplacez par votre logique réelle
-        }
-
-        function connectToUniversalProfile() {
-            // Implémentez votre logique pour connecter à Universal Profile
-            // Par exemple, redirigez ou envoyez une requête API
-            alert("Connecté à Universal Profile !");
-        }
-    </script>
 </body>
 </html>
