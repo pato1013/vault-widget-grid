@@ -34,19 +34,87 @@
             border: none;
             border-radius: 10px;
         }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .inline-flex {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
-        button:hover {
+        .border {
+            border: 1px solid transparent;
+        }
+        .leading-4 {
+            line-height: 1rem;
+        }
+        .font-medium {
+            font-weight: 500;
+        }
+        .rounded {
+            border-radius: 0.25rem;
+        }
+        .transition {
+            transition: all 0.3s ease-in-out;
+        }
+        .whitespace-nowrap {
+            white-space: nowrap;
+        }
+        .bg-primary-600 {
+            background-color: #007BFF;
+        }
+        .text-white {
+            color: white;
+        }
+        .shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .hover\:shadow-md:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .active\:bg-primary-600:active {
+            background-color: #007BFF;
+        }
+        .hover\:bg-primary-700:hover {
             background-color: #0056b3;
+        }
+        .focus\:shadow-outline-primary:focus {
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+        }
+        .dark\:hover\:bg-primary-500:hover {
+            background-color: #0056b3;
+        }
+        .px-5 {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        .text-base {
+            font-size: 1rem;
+        }
+        .opacity-50 {
+            opacity: 0.5;
+        }
+        .cursor-not-allowed {
+            cursor: not-allowed;
+        }
+        .w-full {
+            width: 100%;
+        }
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+        .hover\:text-white:hover {
+            color: white;
+        }
+        .dark\:hover\:text-white:hover {
+            color: white;
+        }
+        .hover\:bg-primary-600:hover {
+            background-color: #007BFF;
+        }
+        .hover\:\!shadow-md:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         /* Ajustements spécifiques pour les petits écrans */
@@ -66,7 +134,7 @@
         <h2>Vault LYX Staking</h2>
         <p>Gérez vos LYX et participez au staking sécurisé via Universal Page.</p>
         <iframe src="https://universal.page/vault" allowfullscreen sandbox="allow-scripts allow-same-origin" title="Vault LYX Staking"></iframe>
-        <button id="connectButton">Connect with Universal Profile</button>
+        <button class="inline-flex items-center justify-center border border-transparent leading-4 font-medium rounded transition duration-300 ease-in-out whitespace-nowrap bg-primary-600 text-white shadow hover:shadow-md active:bg-primary-600 hover:bg-primary-700 focus:shadow-outline-primary dark:hover:bg-primary-500 px-5 py-3 text-base w-full mt-6 hover:text-white dark:hover:text-white hover:bg-primary-600 hover:!shadow-md" type="button" id="connectButton">Connect your UP</button>
     </div>
 
     <script src="https://unpkg.com/@web3-onboard/core"></script>
