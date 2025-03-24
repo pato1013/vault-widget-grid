@@ -34,6 +34,20 @@
             border: none;
             border-radius: 10px;
         }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
 
         /* Ajustements spécifiques pour les petits écrans */
         @media (max-width: 768px) {
@@ -52,6 +66,26 @@
         <h2>Vault LYX Staking</h2>
         <p>Gérez vos LYX et participez au staking sécurisé via Universal Page.</p>
         <iframe src="https://universal.page/vault" allowfullscreen sandbox="allow-scripts allow-same-origin" title="Vault LYX Staking"></iframe>
+        <button id="connectButton">Connect with Universal Profile</button>
     </div>
+
+    <script src="https://unpkg.com/@web3-onboard/core"></script>
+    <script src="https://unpkg.com/@lukso/web3-onboard"></script>
+    <script>
+        async function connectUniversalProfile() {
+            if (window.lukso) {
+                try {
+                    await window.lukso.request({ method: 'eth_requestAccounts' });
+                    console.log('Connected to Universal Profile');
+                } catch (error) {
+                    console.error('Connection failed', error);
+                }
+            } else {
+                console.error('Universal Profile extension not found');
+            }
+        }
+
+        document.getElementById('connectButton').addEventListener('click', connectUniversalProfile);
+    </script>
 </body>
 </html>
